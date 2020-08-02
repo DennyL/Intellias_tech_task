@@ -1,0 +1,19 @@
+This recipe is an advanced decorator example that introduces a number of important and useful concepts.
+First, one aspect of decorators is that they only get applied once, at the time of function
+definition. In certain cases, you may want to disable the functionality added by a dec‐
+orator. To do this, simply have your decorator function return the function unwrapped.
+In the solution, the following code fragment returns the function unmodified if the
+value of the global __debug__ variable is set to False (as is the case when Python executes
+in optimized mode with the -O or -OO options to the interpreter):
+...
+def decorate(func):
+# If in optimized mode, disable type checking
+if not __debug__:
+return func
+...
+Next, a tricky part of writing this decorator is that it involves examining and working
+with the argument signature of the function being wrapped. Your tool of choice here
+should be the inspect.signature() function. Simply stated,
+it allows you to extract
+signature information
+from a callable.
