@@ -89,7 +89,7 @@ def test_get_line_from_not_existing_file(capsys, path_to_file, expected_output):
     assert captured.out == expected_output
 
 
-@pytest.mark.parametrize('path_to_file', ('testdata/text_files/picture.jpg',))
+@pytest.mark.parametrize('path_to_file', ('testdata/images/picture.jpg',))
 @pytest.mark.parametrize('expected_output', ('*** Error! Cannot read the file ***\n',))
 def test_get_line_from_not_text_file(capsys, path_to_file, expected_output):
     """
